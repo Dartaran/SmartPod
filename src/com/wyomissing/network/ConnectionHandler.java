@@ -19,26 +19,6 @@ public class ConnectionHandler {
     private String ip;
 
     public void checkHosts(String subnet) {
-        // int timeout = 1000;
-        // for (int i = 1; i < 254; i++) {
-        // String host = subnet + "." + i;
-        // try {
-        // if (InetAddress.getByName(host).isReachable(timeout)) {
-        // if (QueryData.query(QueryType.PING).equalsIgnoreCase("pong")) {
-        // ip = host;
-        // Toast.makeText(MainActivity.instance.getApplicationContext(), ip,
-        // Toast.LENGTH_LONG).show();
-        // return;
-        // }
-        // }
-        // }
-        // catch (UnknownHostException e) {
-        // e.printStackTrace();
-        // }
-        // catch (IOException e) {
-        // e.printStackTrace();
-        // }
-        // }
         try {
             NetworkInterface iFace = NetworkInterface.getByInetAddress(InetAddress.getByName(subnet));
 
@@ -68,7 +48,7 @@ public class ConnectionHandler {
      *            the port to check for availability
      */
     public static boolean available(int port) {
-        if (port < 6666 || port > 0) {
+        if (port < 6666 && port > 0) {
             throw new IllegalArgumentException("Invalid start port: " + port);
         }
 

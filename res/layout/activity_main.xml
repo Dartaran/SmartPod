@@ -1,79 +1,163 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="${packageName}.${activityClass}" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-    <ImageButton
-        android:id="@+id/btnPower"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/btnLogo"
-        android:layout_marginLeft="7dp"
-        android:layout_toRightOf="@+id/btnLogo"
-        android:layout_marginRight = "7dp"
-        android:layout_marginBottom = "7dp"
-        android:layout_above="@+id/btnRefresh"
-        android:background="#80000000"
-        android:scaleType="centerCrop"
-        android:src="@drawable/power_applayout" />
+        tools:context="${packageName}.${activityClass}" >
 
-    <ImageButton
-        android:id="@+id/btnLogo"
-        android:layout_width="200dp"
-        android:layout_height="148dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="7dp"
-        android:background="#80000000"
-        android:scaleType="centerCrop"
-        android:src="@drawable/smartpod_applayout" />
+        <ImageButton
+            android:id="@+id/btnPower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnRefresh"
+            android:layout_alignTop="@+id/btnLogo"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_toRightOf="@+id/btnLogo"
+            android:background="#80000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/powerselector" />
 
-    <ImageButton
-        android:id="@+id/btnTemperature"
-        android:layout_width="188dp"
-        android:layout_height="130dp"
-        android:layout_alignLeft="@+id/btnLogo"
-        android:layout_below="@+id/btnLogo"
-        android:layout_marginTop="7dp"
-        android:background="#80000000"
-        android:scaleType="centerCrop"
-        android:src="@drawable/temperature_applayout" />
+        <ImageButton
+            android:id="@+id/btnLogo"
+            android:layout_width="225dp"
+            android:layout_height="160dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="7dp"
+            android:background="#80000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/smartpod_applayout" />
 
-    <ImageButton
-        android:id="@+id/btnRefresh"
-        android:layout_width="110dp"
-        android:layout_height="130dp"
-        android:layout_alignRight="@+id/btnPower"
-        android:layout_alignTop="@+id/btnTemperature"
-        android:background="#80000000"
-        android:scaleType="centerCrop"
-        android:src="@drawable/refresh_applayout" />
+        <ImageButton
+            android:id="@+id/btnTemperature"
+            android:layout_width="188dp"
+            android:layout_height="130dp"
+            android:layout_alignLeft="@+id/btnLogo"
+            android:layout_below="@+id/btnLogo"
+            android:layout_marginTop="7dp"
+            android:background="#80000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/temperature_applayout" />
 
-    <ImageButton
-        android:id="@+id/btnNotifications"
-        android:layout_width="188dp"
-        android:layout_height="130dp"
-        android:layout_alignLeft="@+id/btnTemperature"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/btnRefresh"
-        android:layout_below="@+id/btnTemperature"
-        android:layout_marginBottom="7dp"
-        android:layout_marginTop="7dp"
-        android:background="#80000000"
-        android:scaleType="fitXY"
-        android:src="@drawable/notifications_applayout" />
+        <ImageButton
+            android:id="@+id/btnRefresh"
+            android:layout_width="110dp"
+            android:layout_height="130dp"
+            android:layout_alignRight="@+id/btnPower"
+            android:layout_alignTop="@+id/btnTemperature"
+            android:layout_marginLeft="7dp"
+            android:layout_toRightOf="@+id/btnTemperature"
+            android:background="#80000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/imageselector" />
 
-    <TextView
-        android:id="@+id/txtLight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnTemperature"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="58dp"
-        android:text="0"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <ImageButton
+            android:id="@+id/btnNotifications"
+            android:layout_width="188dp"
+            android:layout_height="200dp"
+            android:layout_alignLeft="@+id/btnTemperature"
+            android:layout_alignRight="@+id/btnRefresh"
+            android:layout_below="@+id/btnLight"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:background="#80000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/notifications_applayout" />
 
-</RelativeLayout>
+        <ImageButton
+            android:id="@+id/btnLight"
+            android:layout_width="165dp"
+            android:layout_height="130dp"
+            android:layout_alignLeft="@+id/btnNotifications"
+            android:layout_below="@+id/btnTemperature"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="7dp"
+            android:background="#80000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/lightdefault_applayout" />
+
+        <ImageButton
+            android:id="@+id/btnHumidity"
+            android:layout_width="188dp"
+            android:layout_height="130dp"
+            android:layout_alignRight="@+id/btnNotifications"
+            android:layout_toRightOf="@+id/btnLight"
+            android:layout_alignTop="@+id/btnLight"
+            android:layout_marginBottom="7dp"
+            android:background="#80000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/humidity_applayout" />
+
+        <TextView
+            android:id="@+id/txtTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/btnTemperature"
+            android:layout_alignLeft="@+id/btnTemperature"
+            android:layout_marginBottom="26dp"
+            android:layout_marginLeft="18dp"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/txtHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/btnHumidity"
+            android:layout_marginBottom="23dp"
+            android:layout_alignLeft="@+id/btnHumidity"
+            android:layout_marginLeft="5dp"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/txtSuggestionOne"
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btnNotifications"
+            android:layout_alignRight="@+id/btnNotifications"
+            android:layout_alignTop="@+id/btnNotifications"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="43dp"
+            android:singleLine="false"
+            android:text="02/25/15: The lights were on for 4.3 hours with nobody in the room." />
+
+        <TextView
+            android:id="@+id/txtSuggestionTwo"
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btnNotifications"
+            android:layout_alignRight="@+id/btnNotifications"
+            android:layout_below="@+id/txtSuggestionOne"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="5dp"
+            android:singleLine="false"
+            android:text="02/25/15: The temperature was unnecessarily high (75°+) for at least one hour.  Try lowering the heat." />
+
+        <TextView
+            android:id="@+id/txtSuggestionThree"
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btnNotifications"
+            android:layout_alignRight="@+id/btnNotifications"
+            android:layout_below="@+id/txtSuggestionTwo"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="5dp"
+            android:singleLine="false"
+            android:text="02/25/15: The room was excessively dry at only 7.0% humidity.  Consider purchasing a humidifier." />
+
+    </RelativeLayout>
+
+</ScrollView>

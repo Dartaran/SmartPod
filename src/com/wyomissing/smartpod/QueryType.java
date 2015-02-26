@@ -2,6 +2,6 @@ package com.wyomissing.smartpod;
 
 public enum QueryType {
 
-    PING, TEMP, LIGHT, POWER
+    PING, TEMP, LIGHT, POWER, HUMIDITY, MOTION
     
 }

@@ -1,75 +1,52 @@
 package com.wyomissing.smartpod;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class QueryData extends AsyncTask<QueryType, Void, String> {
 
     @Override
     protected String doInBackground(QueryType... params) {
-        String ip = "http://" + MainActivity.getCH().getIp() + ":8000/";
-        URL url = null;
-        switch (params[0]) {
-        case PING: 
-            ip += "?ping=ping";
-            break;
-        case TEMP:
-            break;
-        case LIGHT: 
-            ip += "?type=live&call=getlight";
-            break;
-        case POWER:
-            break;
-        default:
-            break;
-        }
-        try {
-            url = new URL(ip);
-        }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        try {
-            Document doc = Jsoup.parse(url, 3*1000);
-            return doc.text();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
+        return query(params[0]);
     }
     
-    public static String syncQuery(QueryType qt) {
+    /**
+     * Queries the Pi SmartPod server for a response to data over LAN
+     * @param qt - the type of the query.
+     * @return the result from the web server
+     */
+    public static String query(QueryType qt) {
         String ip = "http://" + MainActivity.getCH().getIp() + ":8000/";
-        URL url = null;
         switch (qt) {
         case PING: 
             ip += "?ping=ping";
             break;
         case TEMP:
+            ip += "?type=live&call=gettemp";
+            break;
+        case HUMIDITY: 
+            ip += "?type=live&call=gethumidity";
             break;
         case LIGHT: 
             ip += "?type=live&call=getlight";
             break;
+        case MOTION:
+            ip += "?type=live&call=getmotion";
+            break;
         case POWER:
+            ip += "?type=live&call=dickpower";
             break;
         default:
             break;
         }
         try {
-            url = new URL(ip);
-        }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        try {
-            Document doc = Jsoup.parse(url, 3*1000);
+            Log.d("dev", ip);
+            Document doc = Jsoup.connect(ip).get();
             return doc.text();
         }
         catch (IOException e) {

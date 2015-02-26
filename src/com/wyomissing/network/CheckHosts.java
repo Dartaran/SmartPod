@@ -6,6 +6,7 @@ import java.net.UnknownHostException;
 
 import android.os.AsyncTask;
 
+import com.wyomissing.smartpod.MainActivity;
 import com.wyomissing.smartpod.QueryData;
 import com.wyomissing.smartpod.QueryType;
 
@@ -40,7 +41,8 @@ public class CheckHosts extends AsyncTask<String, Void, String> {
             String host = params[0] + "." + i;
             try {
                 if (InetAddress.getByName(host).isReachable(timeout)) {
-                    if (QueryData.syncQuery(QueryType.PING).equalsIgnoreCase("pong")) {
+                    MainActivity.getCH().setIp(host);
+                    if (QueryData.query(QueryType.PING).equalsIgnoreCase("pong")) {
                         return host;
                     }
                 }
